@@ -8,36 +8,37 @@ export default class Navigation extends Component {
     }
 
     toggleMenu = e => {
-        let navMenu = e.currentTarget.nextElementSibling;
+        let toggle = !this.state.menuOpen;
+        this.setState({
+            menuOpen: toggle
+        })
+    }
+
+    isMenuOpen = () => {
+        console.log('working');
         if (this.state.menuOpen) {
-            this.setState({
-                menuOpen: false
-            })
-            navMenu.style.opacity = 0
-            navMenu.style.zIndex = -1
+            return 'block'
         } else {
-            this.setState({
-                menuOpen: true
-            })
-            navMenu.style.opacity = 1
-            navMenu.style.zIndex = 2
+            return 'none'
         }
     }
 
     render() {
 
         return (
-            <nav>
+            <header>
                 <h1>Journal App</h1>
                 <FaBars className="icon-menu" onClick={this.toggleMenu} />
-                <ul>
-                    <li><a href="#">Politics</a></li>
-                    <li><a href="#">Economics</a></li>
-                    <li><a href="#">Sport</a></li>
-                    <li><a href="#">Culture</a></li>
-                    <li><a href="#">Technology</a></li>
-                </ul>
-            </nav>
+                <nav style={{ display: this.isMenuOpen() }}>
+                    <ul>
+                        <li><a href="#">Politics</a></li>
+                        <li><a href="#">Economics</a></li>
+                        <li><a href="#">Sport</a></li>
+                        <li><a href="#">Culture</a></li>
+                        <li><a href="#">Technology</a></li>
+                    </ul>
+                </nav>
+            </header>
         )
     }
 }

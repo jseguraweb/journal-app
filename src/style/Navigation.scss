@@ -1,6 +1,6 @@
-nav {
+header {
     width: 100%;
-    height: 20vh;
+    height: auto;
     background-color: antiquewhite;
     display: flex;
     flex-direction: column;
@@ -19,10 +19,16 @@ h1 {
 .icon-menu {
     font-size: 2rem;
     cursor: pointer;
+    margin: 0.5rem 0;
 
     &:hover {
         color: rgb(77, 66, 49);
     }
+}
+
+nav {
+    width: 100%;
+    display: none;
 }
 
 ul {
@@ -31,12 +37,8 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    position: absolute;
     background-color: antiquewhite;
-    height: auto;
-    top: 20vh;
-    // z-index: 2;
-    opacity: 0;
+    top: 145px;
 
     li {
         width: 100%;
@@ -68,17 +70,17 @@ ul {
         display: none;
     }
 
+    nav {
+        display: block !important;
+    }
+
     ul {
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
-        position: relative;
-        height: auto;
-        top: 0;
         background-color: transparent;
-        opacity: 1;
 
         li {
             width: 100%;
