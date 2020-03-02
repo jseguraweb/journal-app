@@ -3,7 +3,7 @@ import '../style/NewBox.scss'
 
 export default class NewBox extends Component {
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         let article = this.props.article;
         let title = article.title;
         let description = article.description;

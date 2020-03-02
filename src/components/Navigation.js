@@ -36,10 +36,9 @@ export default class Navigation extends Component {
                 <FaBars className="icon-menu" onClick={this.toggleMenu} />
                 <nav style={this.isMenuOpen()}>
                     <ul>
-                        <li><a href="#">Politics</a></li>
-                        <li><a href="#">Economics</a></li>
+                        <li><a href="#">Business</a></li>
                         <li><a href="#">Sport</a></li>
-                        <li><a href="#">Culture</a></li>
+                        <li><a href="#">Entertainment</a></li>
                         <li><a href="#">Technology</a></li>
                     </ul>
                 </nav>
