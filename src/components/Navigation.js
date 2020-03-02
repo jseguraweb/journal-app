@@ -17,9 +17,15 @@ export default class Navigation extends Component {
     isMenuOpen = () => {
         console.log('working');
         if (this.state.menuOpen) {
-            return 'block'
+            return ({
+                display: 'block',
+                zIndex: '2'
+            })
         } else {
-            return 'none'
+            return ({
+                display: 'none',
+                zIndex: '-1'
+            })
         }
     }
 
@@ -29,7 +35,7 @@ export default class Navigation extends Component {
             <header>
                 <h1>Journal App</h1>
                 <FaBars className="icon-menu" onClick={this.toggleMenu} />
-                <nav style={{ display: this.isMenuOpen() }}>
+                <nav style={this.isMenuOpen()}>
                     <ul>
                         <li><a href="#">Politics</a></li>
                         <li><a href="#">Economics</a></li>
