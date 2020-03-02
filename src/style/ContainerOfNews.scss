@@ -2,14 +2,16 @@
     width: 100%;
     height: auto;
     display: grid;
-    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
     grid-gap: 1rem;
     padding: 1.5rem;
 }
 
 .box {
-    // border: 1px solid #000;
+    border: 2px solid rgb(77, 66, 49);
     background-color: #fff;
+    position: relative;
+    padding-bottom: 2rem;
 }
 
 .box1 {
@@ -62,20 +64,4 @@
     p {
         font-size: 1.2rem;
     }
-}
-
-.box5 {
-    
-}
-
-.box6 {
-    
-}
-
-.box7 {
-    
-}
-
-.box8 {
-    
 }
