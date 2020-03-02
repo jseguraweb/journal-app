@@ -11,13 +11,13 @@ export default class ContainerOfNews extends Component {
 
     componentDidMount = async () => {
         try {
-            const serverDataSports = await fetch('https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=701dc18d676e4d62a0c678f128ece113');
+            const serverDataSports = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=701dc18d676e4d62a0c678f128ece113');
             const responseSports = await serverDataSports.json();
-            const serverDataTech = await fetch('https://newsapi.org/v2/top-headlines?country=gb&category=technology&apiKey=701dc18d676e4d62a0c678f128ece113');
+            const serverDataTech = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=technology&apiKey=701dc18d676e4d62a0c678f128ece113');
             const responseTech = await serverDataTech.json();
-            const serverDataBusiness = await fetch('https://newsapi.org/v2/top-headlines?country=gb&apiKey=701dc18d676e4d62a0c678f128ece113');
+            const serverDataBusiness = await fetch('http://newsapi.org/v2/top-headlines?country=gb&apiKey=701dc18d676e4d62a0c678f128ece113');
             const responseBusiness = await serverDataBusiness.json();
-            const serverDataEntertainment = await fetch('https://newsapi.org/v2/top-headlines?country=gb&category=entertainment&apiKey=701dc18d676e4d62a0c678f128ece113');
+            const serverDataEntertainment = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=entertainment&apiKey=701dc18d676e4d62a0c678f128ece113');
             const responseEntertainment = await serverDataEntertainment.json();
 
             let allNews = responseSports.articles.concat(responseTech.articles, responseBusiness.articles, responseEntertainment.articles);
