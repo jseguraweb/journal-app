@@ -11,7 +11,7 @@ export default class ContainerOfNews extends Component {
 
     componentDidMount = async () => {
         try {
-            const serverData = await fetch('http://newsapi.org/v2/everything?domains=wsj.com,nytimes.com&apiKey=701dc18d676e4d62a0c678f128ece113');
+            const serverData = await fetch('http://newsapi.org/v2/top-headlines?country=gb&apiKey=701dc18d676e4d62a0c678f128ece113');
             const response = await serverData.json();
             this.setState({
                 news: response.articles,

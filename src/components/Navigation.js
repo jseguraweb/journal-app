@@ -15,7 +15,6 @@ export default class Navigation extends Component {
     }
 
     isMenuOpen = () => {
-        console.log('working');
         if (this.state.menuOpen) {
             return ({
                 display: 'block',
