@@ -1,5 +1,6 @@
 {
   " name": "journal-app",
+  "homepage": "https://jseguraweb.github.io/journal-app/",
   "version": "1.0.0",
   "description": "des",
   "scripts": {
@@ -31,5 +32,8 @@
     ]
   },
   "author": "naqvi",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
 }
