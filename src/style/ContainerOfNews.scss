@@ -5,10 +5,11 @@
     grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
     grid-gap: 1rem;
     padding: 1.5rem;
+    justify-content: center;
 }
 
 .box {
-    border: 2px solid rgb(77, 66, 49);
+    border: 5px solid rgb(0, 0, 0);
     background-color: #fff;
     position: relative;
     padding-bottom: 2rem;

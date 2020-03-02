@@ -1,11 +1,12 @@
 header {
     width: 100%;
     height: auto;
-    background-color: antiquewhite;
+    background-color: #000;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    color: #fff;
 }
 
 h1 {
@@ -14,6 +15,7 @@ h1 {
     font-family: 'Abril Fatface', serif;
     letter-spacing: 0.2rem;
     text-align: center;
+    font-weight: 400;
 }
 
 .icon-menu {
@@ -22,7 +24,7 @@ h1 {
     margin: 0.5rem 0;
 
     &:hover {
-        color: rgb(77, 66, 49);
+        color: rgb(192, 192, 192);
     }
 }
 
@@ -37,7 +39,7 @@ ul {
     height: calc(100% - 145px);
     display: flex;
     flex-direction: column;
-    background-color: antiquewhite;
+    background-color: #000;
     position: absolute;
     top: 145px;
 
@@ -48,7 +50,7 @@ ul {
         text-align: center;
         
         a {
-            color: #000;
+            color: #fff;
             width: 100%;
             height: 100%;
             display: flex;
@@ -57,10 +59,11 @@ ul {
         }
 
         &:hover {
-            background-color: rgb(77, 66, 49);
+            background-color: #fff;
 
             a {
-                color: #fff;
+                color: #000;
+                font-weight: 600;
             }
         }
     }
@@ -68,7 +71,7 @@ ul {
 
 @media screen and (min-width: 670px) {
     h1 {
-        font-size: 5rem;
+        font-size: 6rem;
     }
 
     .icon-menu {
@@ -98,15 +101,11 @@ ul {
             text-align: center;
             padding: 0.5rem;
 
-            a {
-                color: #000;
-            }
-
             &:hover {
-                background-color: rgb(77, 66, 49);
+                background-color: #fff;
 
                 a {
-                    color: #fff;
+                    color: #000;
                 }
             }
         }
