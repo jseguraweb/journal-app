@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../style/ContainerOfNews.scss'
 import NewBox from './NewBox'
 import LoadingPage from './LoadingPage'
+import SearchForm from './SearchForm'
 
 export default class ContainerOfNews extends Component {
     state = ({
@@ -38,19 +39,21 @@ export default class ContainerOfNews extends Component {
 
     shuffleArray = array => array.sort(() => Math.random() - 0.5);
 
-    filterNews = currentTopic => {
-        let newState = this.state.news.filter(el => el.topic === this.props.currentTopic);
-        this.setState({
-            news: newState
-        })
-    }
-
     render() {
         const topic = this.props.currentTopic;
+        const input = this.props.currentInput;
+
         const { news } = this.state
+
         let allArticles;
+
         if (news.length > 0) {
             allArticles = news.map((article, i) => {
+                // if (article.title.toLocaleLowerCase().includes(input)) {
+                //     return (
+                //         <div className="box" key={i}><NewBox key={i} article={article} /></div>
+                //     )
+                // }
                 if (article.description && !article.description.includes('http') && !article.description.includes('%20') && topic === '') {
                     return (
                         <div className="box" key={i}><NewBox key={i} article={article} /></div>
@@ -66,9 +69,9 @@ export default class ContainerOfNews extends Component {
             return <LoadingPage />
         }
 
-
         return (
             <div className="container" >
+                <SearchForm passInput={this.props.passInput} />
                 {allArticles}
             </div>
         )
