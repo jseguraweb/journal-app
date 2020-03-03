@@ -13,12 +13,16 @@ export default class ContainerOfNews extends Component {
         try {
             const serverDataSports = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=701dc18d676e4d62a0c678f128ece113');
             const responseSports = await serverDataSports.json();
+            const sportNews = responseSports.articles.map(el => el.topic = 'sport')
             const serverDataTech = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=technology&apiKey=701dc18d676e4d62a0c678f128ece113');
             const responseTech = await serverDataTech.json();
+            const techNews = responseTech.articles.map(el => el.topic = 'technology')
             const serverDataBusiness = await fetch('http://newsapi.org/v2/top-headlines?country=gb&apiKey=701dc18d676e4d62a0c678f128ece113');
             const responseBusiness = await serverDataBusiness.json();
+            const businessNews = responseBusiness.articles.map(el => el.topic = 'business')
             const serverDataEntertainment = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=entertainment&apiKey=701dc18d676e4d62a0c678f128ece113');
             const responseEntertainment = await serverDataEntertainment.json();
+            const entertainmentNews = responseEntertainment.articles.map(el => el.topic = 'entertainment')
 
             let allNews = responseSports.articles.concat(responseTech.articles, responseBusiness.articles, responseEntertainment.articles);
             allNews = this.shuffleArray(allNews)
