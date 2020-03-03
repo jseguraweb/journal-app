@@ -11,13 +11,13 @@ export default class SearchForm extends Component {
         this.setState({
             input: e.target.value
         })
-        this.props.passInput(this.state.input)
+        this.props.passInput(this.state.input);
     }
 
     render() {
         return (
             <form action="#" className="search-bar" >
-                <FaSearch className="search-icon" /><input type="text" onChange={this.getInput} />
+                <FaSearch className="search-icon" /><input type="text" onChange={this.getInput} value={this.state.input} />
             </form>
         )
     }

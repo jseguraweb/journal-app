@@ -7,7 +7,8 @@ import SearchForm from './SearchForm'
 export default class ContainerOfNews extends Component {
     state = ({
         news: [],
-        loading: true
+        loading: true,
+        input: ''
     })
 
     componentDidMount = async () => {
@@ -39,39 +40,46 @@ export default class ContainerOfNews extends Component {
 
     shuffleArray = array => array.sort(() => Math.random() - 0.5);
 
+    passInput = input => {
+        this.setState({
+            input: input
+        })
+        console.log(this.state.input);
+    }
+
     render() {
         const topic = this.props.currentTopic;
-        const input = this.props.currentInput;
 
         const { news } = this.state
 
         let allArticles;
 
         if (news.length > 0) {
-            allArticles = news.map((article, i) => {
-                // if (article.title.toLocaleLowerCase().includes(input)) {
-                //     return (
-                //         <div className="box" key={i}><NewBox key={i} article={article} /></div>
-                //     )
-                // }
-                if (article.description && !article.description.includes('http') && !article.description.includes('%20') && topic === '') {
-                    return (
-                        <div className="box" key={i}><NewBox key={i} article={article} /></div>
-                    )
-                }
-                else if (article.description && !article.description.includes('http') && !article.description.includes('%20') && article.topic === topic) {
-                    return (
-                        <div className="box" key={i}><NewBox key={i} article={article} /></div>
-                    )
-                }
-            })
+            allArticles = news
+                .filter(article => article.title.toLocaleLowerCase().indexOf(this.state.input.toLocaleLowerCase()) !== -1)
+                .map((article, i) => {
+                    if (article.description &&
+                        !article.description.includes('http') &&
+                        !article.description.includes('%20') &&
+                        article.urlToImage.includes('http') &&
+                        topic === '') {
+                        return (
+                            <div className="box" key={i}><NewBox key={i} article={article} /></div>
+                        )
+                    }
+                    else if (article.description && !article.description.includes('http') && !article.description.includes('%20') && article.topic === topic) {
+                        return (
+                            <div className="box" key={i}><NewBox key={i} article={article} /></div>
+                        )
+                    }
+                })
         } else {
             return <LoadingPage />
         }
 
         return (
             <div className="container" >
-                <SearchForm passInput={this.props.passInput} />
+                <SearchForm passInput={this.passInput} />
                 {allArticles}
             </div>
         )

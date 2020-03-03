@@ -5,8 +5,7 @@ import ContainerOfNews from './ContainerOfNews'
 
 export default class App extends Component {
   state = {
-    topic: '',
-    input: ''
+    topic: ''
   }
 
   filterNews = topic => {
@@ -15,19 +14,12 @@ export default class App extends Component {
     })
   }
 
-  passInput = input => {
-    this.setState({
-      input: input
-    })
-    console.log(this.state.input);
-  }
-
   render() {
 
     return (
       <div>
-        <Navigation filterNews={this.filterNews} passInput={this.passInput} />
-        <ContainerOfNews currentTopic={this.state.topic} currentInput={this.state.input} />
+        <Navigation filterNews={this.filterNews} />
+        <ContainerOfNews currentTopic={this.state.topic} />
       </div>
     )
   }
