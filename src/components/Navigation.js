@@ -32,14 +32,14 @@ export default class Navigation extends Component {
 
         return (
             <header>
-                <h1>Journal App</h1>
+                <h1 onClick={() => this.props.filterNews('')}>Journal App</h1>
                 <FaBars className="icon-menu" onClick={this.toggleMenu} />
                 <nav style={this.isMenuOpen()}>
                     <ul>
-                        <li onClick={() => this.props.filter('business')}>Business</li>
-                        <li onClick={() => this.props.filter('sport')}>Sport</li>
-                        <li onClick={() => this.props.filter('entertainment')}>Entertainment</li>
-                        <li onClick={() => this.props.filter('technology')}>Technology</li>
+                        <li onClick={() => this.props.filterNews('business')}>Business</li>
+                        <li onClick={() => this.props.filterNews('sport')}>Sport</li>
+                        <li onClick={() => this.props.filterNews('entertainment')}>Entertainment</li>
+                        <li onClick={() => this.props.filterNews('technology')}>Technology</li>
                     </ul>
                 </nav>
             </header>
