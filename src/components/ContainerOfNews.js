@@ -44,7 +44,6 @@ export default class ContainerOfNews extends Component {
         this.setState({
             input: input
         })
-        console.log(this.state.input);
     }
 
     render() {
@@ -62,12 +61,8 @@ export default class ContainerOfNews extends Component {
                         !article.description.includes('http') &&
                         !article.description.includes('%20') &&
                         article.urlToImage.includes('http') &&
-                        topic === '') {
-                        return (
-                            <div className="box" key={i}><NewBox key={i} article={article} /></div>
-                        )
-                    }
-                    else if (article.description && !article.description.includes('http') && !article.description.includes('%20') && article.topic === topic) {
+                        (topic === '' ||
+                            article.topic === topic)) {
                         return (
                             <div className="box" key={i}><NewBox key={i} article={article} /></div>
                         )
