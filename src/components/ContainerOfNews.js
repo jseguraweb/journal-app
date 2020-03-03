@@ -38,6 +38,13 @@ export default class ContainerOfNews extends Component {
 
     shuffleArray = array => array.sort(() => Math.random() - 0.5);
 
+    filterNews = currentTopic => {
+        let newState = this.state.news.filter(el => el.topic === this.propscurrentTopic);
+        this.setState({
+            news: newState
+        })
+    }
+
     render() {
 
         const { news } = this.state
