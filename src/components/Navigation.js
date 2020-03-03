@@ -36,10 +36,10 @@ export default class Navigation extends Component {
                 <FaBars className="icon-menu" onClick={this.toggleMenu} />
                 <nav style={this.isMenuOpen()}>
                     <ul>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Sport</a></li>
-                        <li><a href="#">Entertainment</a></li>
-                        <li><a href="#">Technology</a></li>
+                        <li onClick={() => this.props.filter('business')}>Business</li>
+                        <li onClick={() => this.props.filter('sport')}>Sport</li>
+                        <li onClick={() => this.props.filter('entertainment')}>Entertainment</li>
+                        <li onClick={() => this.props.filter('technology')}>Technology</li>
                     </ul>
                 </nav>
             </header>
