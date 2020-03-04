@@ -8,7 +8,8 @@ export default class ContainerOfNews extends Component {
     state = ({
         news: [],
         loading: true,
-        input: ''
+        input: '',
+        topic: this.props.currentTopic
     })
 
     componentDidMount = async () => {
@@ -33,6 +34,11 @@ export default class ContainerOfNews extends Component {
                 news: allNews,
                 loading: false
             })
+
+            if (this.state.topic === '') {
+                document.querySelector('.box').classList.add('box1');
+            }
+
         } catch (error) {
             alert(error)
         }
@@ -47,7 +53,8 @@ export default class ContainerOfNews extends Component {
     }
 
     render() {
-        const topic = this.props.currentTopic;
+
+        const topic = this.props.currentTopic
 
         const { news } = this.state
 
@@ -62,7 +69,7 @@ export default class ContainerOfNews extends Component {
                         !article.description.includes('%20') &&
                         article.urlToImage.includes('http') &&
                         (topic === '' ||
-                            article.topic === topic)) {
+                            topic === article.topic)) {
                         return (
                             <div className="box" key={i}><NewBox key={i} article={article} /></div>
                         )

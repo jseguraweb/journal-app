@@ -8,6 +8,7 @@ export default class SearchForm extends Component {
     }
 
     getInput = e => {
+        e.preventDefault();
         this.setState({
             input: e.target.value
         })
@@ -16,7 +17,7 @@ export default class SearchForm extends Component {
 
     render() {
         return (
-            <form action="#" className="search-bar" >
+            <form action="search-news" className="search-bar" >
                 <FaSearch className="search-icon" /><input type="text" onChange={this.getInput} value={this.state.input} />
             </form>
         )
