@@ -24,7 +24,7 @@ export default class ContainerOfNews extends Component {
             const serverDataTech = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=technology&apiKey=701dc18d676e4d62a0c678f128ece113');
             let responseTech = await serverDataTech.json();
             responseTech.articles.map(el => el['topic'] = 'technology')
-            const serverDataBusiness = await fetch('http://newsapi.org/v2/top-headlines?country=gb&apiKey=701dc18d676e4d62a0c678f128ece113');
+            const serverDataBusiness = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=business&apiKey=701dc18d676e4d62a0c678f128ece113');
             let responseBusiness = await serverDataBusiness.json();
             responseBusiness.articles.map(el => el['topic'] = 'business')
             const serverDataEntertainment = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=entertainment&apiKey=701dc18d676e4d62a0c678f128ece113');
