@@ -12,7 +12,11 @@ export default class ContainerOfNews extends Component {
         topic: this.props.currentTopic
     })
 
-    componentDidMount = async () => {
+    componentDidMount() {
+        this.fetchData()
+    }
+
+    fetchData = async () => {
         try {
             const serverDataSports = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=701dc18d676e4d62a0c678f128ece113');
             let responseSports = await serverDataSports.json();
