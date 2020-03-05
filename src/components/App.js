@@ -40,22 +40,22 @@ const App = () => {
     }
   }
 
-  // filterNews = topic => {
-  //   this.setState({
-  //     topic: topic
-  //   })
-  // }
+  const changeTopic = topic => {
+    setTopic(topic)
+  }
 
   useEffect(() => {
     fetchData()
   }, [])
 
+  console.log(topic);
+
   return (
     <div>
-      <Navigation />
-      {
+      <Navigation changeTopic={changeTopic} />
+      {/* {
         news.map((el, i) => <p key={i}>{el.title}</p>)
-      }
+      } */}
       {/* <ContainerOfNews currentTopic={this.state.topic} /> */}
     </div>
   )

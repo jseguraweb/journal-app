@@ -2,12 +2,8 @@ import React, { useState } from 'react'
 import '../style/Navigation.scss'
 import { FaBars } from 'react-icons/fa'
 
-const Navigation = () => {
+const Navigation = ({ changeTopic }) => {
     const [menuOpen, setMenuOpen] = useState(false)
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen)
-    }
 
     const openMenu = () => {
         if (menuOpen) {
@@ -25,19 +21,18 @@ const Navigation = () => {
 
     return (
         <header>
-            <h1>Journal App</h1>
-            <FaBars className="icon-menu" onClick={toggleMenu} />
+            <h1 onClick={() => changeTopic('')}>Journal App</h1>
+            <FaBars className="icon-menu" onClick={() => setMenuOpen(!menuOpen)} />
             <nav style={openMenu()}>
                 <ul>
-                    <li onClick={toggleMenu}>Business</li>
-                    <li onClick={toggleMenu}>Sport</li>
-                    <li onClick={toggleMenu}>Entertainment</li>
-                    <li onClick={toggleMenu}>Technology</li>
+                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('business') }}>Business</li>
+                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('sport') }}>Sport</li>
+                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('entertainment') }}>Entertainment</li>
+                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('technology') }}>Technology</li>
                 </ul>
             </nav>
         </header>
     )
 }
-
 
 export default Navigation
