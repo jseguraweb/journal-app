@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import '../style/App.scss'
 import Navigation from './Navigation'
 import ContainerOfNews from './ContainerOfNews'
+import LoadingPage from './LoadingPage'
+import SearchForm from './SearchForm'
 
 const App = () => {
   const [news, setNews] = useState([]);
@@ -9,7 +11,9 @@ const App = () => {
   const [topic, setTopic] = useState('');
   const [userInput, setUserInput] = useState('');
 
-  const shuffleArray = array => array.sort(() => Math.random() - 0.5);
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   const fetchData = async () => {
     try {
@@ -27,36 +31,29 @@ const App = () => {
       entertainmentNews.articles.map(el => el.topic = 'entertainment')
 
       let allNews = sportNews.articles.concat(techNews.articles, businessNews.articles, entertainmentNews.articles);
+      const shuffleArray = array => array.sort(() => Math.random() - 0.5);
       allNews = shuffleArray(allNews)
-
-      // if (topic === '') {
-      //   document.querySelector('.box').classList.add('box1');
-      // }
 
       setNews(allNews);
       setLoading(false);
     } catch (error) {
-      console.log(error)
+      console.log('ERROR:', error)
     }
   }
 
-  const changeTopic = topic => {
-    setTopic(topic)
-  }
+  // props
 
-  useEffect(() => {
-    fetchData()
-  }, [])
+  const changeTopic = topic => setTopic(topic)
 
-  console.log(topic);
+  const passInput = input => setUserInput(input)
 
   return (
     <div>
       <Navigation changeTopic={changeTopic} />
-      {/* {
-        news.map((el, i) => <p key={i}>{el.title}</p>)
-      } */}
-      {/* <ContainerOfNews currentTopic={this.state.topic} /> */}
+      {/* <SearchForm passInput={passInput} /> */}
+      {/* {news.length > 1 ? <p>YES</p> : null} */}
+      {news.length > 1 ? <ContainerOfNews news={news} topic={topic} userInput={userInput} /> : null}
+      {loading ? <LoadingPage /> : null}
     </div>
   )
 }
