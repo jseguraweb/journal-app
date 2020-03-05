@@ -1,21 +1,16 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import '../style/Navigation.scss'
 import { FaBars } from 'react-icons/fa'
 
-export default class Navigation extends Component {
-    state = {
-        menuOpen: false
+const Navigation = () => {
+    const [menuOpen, setMenuOpen] = useState(false)
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen)
     }
 
-    toggleMenu = e => {
-        let toggle = !this.state.menuOpen;
-        this.setState({
-            menuOpen: toggle
-        })
-    }
-
-    isMenuOpen = () => {
-        if (this.state.menuOpen) {
+    const openMenu = () => {
+        if (menuOpen) {
             return ({
                 display: 'block',
                 zIndex: '2'
@@ -28,21 +23,21 @@ export default class Navigation extends Component {
         }
     }
 
-    render() {
-
-        return (
-            <header>
-                <h1 onClick={() => this.props.filterNews('')}>Journal App</h1>
-                <FaBars className="icon-menu" onClick={this.toggleMenu} />
-                <nav style={this.isMenuOpen()}>
-                    <ul>
-                        <li onClick={() => { this.props.filterNews('business'); this.toggleMenu() }}>Business</li>
-                        <li onClick={() => { this.props.filterNews('sport'); this.toggleMenu() }}>Sport</li>
-                        <li onClick={() => { this.props.filterNews('entertainment'); this.toggleMenu() }}>Entertainment</li>
-                        <li onClick={() => { this.props.filterNews('technology'); this.toggleMenu() }}>Technology</li>
-                    </ul>
-                </nav>
-            </header>
-        )
-    }
+    return (
+        <header>
+            <h1>Journal App</h1>
+            <FaBars className="icon-menu" onClick={toggleMenu} />
+            <nav style={openMenu()}>
+                <ul>
+                    <li onClick={toggleMenu}>Business</li>
+                    <li onClick={toggleMenu}>Sport</li>
+                    <li onClick={toggleMenu}>Entertainment</li>
+                    <li onClick={toggleMenu}>Technology</li>
+                </ul>
+            </nav>
+        </header>
+    )
 }
+
+
+export default Navigation
