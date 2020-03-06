@@ -21,14 +21,14 @@ const Navigation = ({ changeTopic }) => {
 
     return (
         <header>
-            <h1 onClick={() => changeTopic('')}>Journal App</h1>
+            <h1 onClick={() => changeTopic('')}>The Journal App</h1>
             <FaBars className="icon-menu" onClick={() => setMenuOpen(!menuOpen)} />
             <nav style={openMenu()}>
                 <ul>
-                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('business') }}>Business</li>
-                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('sport') }}>Sport</li>
-                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('entertainment') }}>Entertainment</li>
-                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('technology') }}>Technology</li>
+                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('business') }}>BUSINESS</li>
+                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('sport') }}>SPORT</li>
+                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('entertainment') }}>ENTERTAINMENT</li>
+                    <li onClick={() => { setMenuOpen(!menuOpen); changeTopic('technology') }}>TECHNOLOGY</li>
                 </ul>
             </nav>
         </header>
