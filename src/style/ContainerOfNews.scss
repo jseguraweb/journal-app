@@ -8,6 +8,20 @@
     justify-content: center;
 }
 
+.no-news {
+    position: absolute;
+    z-index: -1;
+    top: 250px;
+    left: 50px;
+    font-size: 2rem;
+
+    @media screen and (max-width: 600px) {
+        top: 180px;
+        left: 20px;
+        font-size: 1rem;
+    }
+}
+
 .box {
     border: 5px solid rgb(0, 0, 0);
     background-color: #fff;
