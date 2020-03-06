@@ -25,6 +25,7 @@ const ContainerOfNews = ({ news, topic, userInput }) => {
                     }
                 })
         )
+
     }, [userInput, topic])
 
     return (
