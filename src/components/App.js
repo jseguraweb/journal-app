@@ -43,16 +43,21 @@ const App = () => {
 
   // props
 
-  const changeTopic = topic => setTopic(topic)
+  const changeTopic = topic => {
+    setTopic(topic)
+    setUserInput('')
+  }
 
-  const passInput = input => setUserInput(input)
+  const handleSubmit = input => {
+    console.log('SavedInput:', input);
+    setUserInput(input)
+  }
 
   return (
     <div>
       <Navigation changeTopic={changeTopic} />
-      {/* <SearchForm passInput={passInput} /> */}
-      {/* {news.length > 1 ? <p>YES</p> : null} */}
-      {news.length > 1 ? <ContainerOfNews news={news} topic={topic} userInput={userInput} /> : null}
+      <SearchForm handleSubmit={handleSubmit} />
+      {news.length > 0 ? <ContainerOfNews news={news} topic={topic} userInput={userInput} /> : null}
       {loading ? <LoadingPage /> : null}
     </div>
   )

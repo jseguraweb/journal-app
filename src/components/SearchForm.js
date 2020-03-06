@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import '../style/SearchForm.scss'
 import { FaSearch } from 'react-icons/fa'
 
-export default class SearchForm extends Component {
-    state = {
-        input: ''
+const SearchForm = ({ handleSubmit }) => {
+
+    const [input, setInput] = useState('');
+
+    const getInput = e => {
+        setInput(e.target.value);
     }
 
-    getInput = e => {
-        e.preventDefault();
-        this.setState({
-            input: e.target.value
-        })
-        this.props.passInput(this.state.input);
-    }
+    console.log('SearchForm:', input);
 
-    render() {
-        return (
-            <form action="search-news" className="search-bar" >
-                <input type="text" onChange={this.getInput} value={this.state.input} /><FaSearch className="search-icon" />
-            </form>
-        )
-    }
+    return (
+        <form action="#" className="search-bar" onSubmit={(e) => { e.preventDefault(); handleSubmit(input); setInput('') }} >
+            <input type="text" onChange={getInput} value={input} /><FaSearch className="search-icon" />
+        </form>
+    )
 }
+
+export default SearchForm

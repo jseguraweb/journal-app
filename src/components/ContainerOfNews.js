@@ -9,6 +9,7 @@ const ContainerOfNews = ({ news, topic, userInput }) => {
     useEffect(() => {
         setArticles(
             news
+                .filter(article => article.title.toLocaleLowerCase().indexOf(userInput.toLocaleLowerCase()) !== -1)
                 .map((article, i) => {
                     if (article.description &&
                         typeof article.urlToImage === 'string' &&
@@ -24,7 +25,7 @@ const ContainerOfNews = ({ news, topic, userInput }) => {
                     }
                 })
         )
-    }, [topic])
+    }, [userInput, topic])
 
     return (
         <div className="container" >
