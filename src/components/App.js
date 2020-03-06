@@ -4,6 +4,7 @@ import Navigation from './Navigation'
 import ContainerOfNews from './ContainerOfNews'
 import LoadingPage from './LoadingPage'
 import SearchForm from './SearchForm'
+import Footer from './Footer'
 
 const App = () => {
   const [news, setNews] = useState([]);
@@ -59,6 +60,7 @@ const App = () => {
       <SearchForm handleSubmit={handleSubmit} />
       {news.length > 0 ? <ContainerOfNews news={news} topic={topic} userInput={userInput} /> : null}
       {loading ? <LoadingPage /> : null}
+      {news.length > 0 ? <Footer /> : null}
     </div>
   )
 }
