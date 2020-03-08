@@ -1,11 +1,19 @@
 .container {
     width: 100%;
-    min-height: 48vh;
+    min-height: 64vh;
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
     grid-gap: 1rem;
     padding: 1.5rem;
     justify-content: center;
+
+    @media screen and (min-width: 670px) {
+        min-height: 48vh;
+    }
+
+    @media screen and (min-width: 1200px) {
+        min-height: 50vh;
+    }
 }
 
 .no-news {
@@ -27,25 +35,9 @@
     position: relative;
     padding-bottom: 2rem;
     box-shadow: 0px 0px 5px grey;
-    transition: 0s !important;
-
-    &:hover {
-        background-color: #000;
-        color: #fff;
-
-        a{
-            color: yellow;
-        }
-    }
 
     .link:hover {
         transform: scale(1.1);
-    }
-}
-
-@media screen and (min-height: 780px){
-    .container {
-        min-height: 64vh;
     }
 }
 

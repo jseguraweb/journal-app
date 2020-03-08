@@ -7,7 +7,7 @@ import { useSpring, animated } from 'react-spring'
 const ContainerOfNews = ({ news, topic, userInput }) => {
 
     const [articles, setArticles] = useState([]);
-    const appearanceArticles = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '0.5s', transitionDuration: '.5s' } })
+    const appearanceArticles = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '.5s', transitionDuration: '.5s' } })
 
     useEffect(() => {
         setArticles(
