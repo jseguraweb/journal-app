@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/NewBox.scss'
 
+
 const NewBox = ({ article }) => {
     return (
         <article>

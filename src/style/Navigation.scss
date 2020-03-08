@@ -41,16 +41,16 @@ h1 {
 
 nav {
     width: 100%;
-    height: calc(100vh - 145px);
-    display: none;
+    height: calc(100vh - 123px);
+    display: flex;
+    background-color: #000;
 }
 
 ul {
     width: 100%;
-    height: calc(100% - 145px);
+    height: calc(100% - 123px);
     display: flex;
     flex-direction: column;
-    background-color: #000;
     position: absolute;
     top: 145px;
 
@@ -62,8 +62,9 @@ ul {
         color: #fff;
         cursor: pointer;
         display: flex;
-            align-items: center;
-            justify-content: space-around;
+        align-items: center;
+        justify-content: space-around;
+        transition-duration: 0.2s;
 
         &:hover {
             background-color: #fff;
@@ -82,6 +83,7 @@ ul {
     nav {
         display: block !important;
         z-index: 0 !important;
+        opacity: 1 !important;
         height: auto;
     }
 
@@ -114,5 +116,9 @@ ul {
     .icon-menu {
         margin: 0.5rem 1rem 0.5rem;
         align-self: flex-end;
+    }
+
+    ul {
+        // top: 136px;
     }
 }

@@ -50,7 +50,6 @@ const App = () => {
   }
 
   const handleSubmit = input => {
-    console.log('SavedInput:', input);
     setUserInput(input)
   }
 
