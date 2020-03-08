@@ -37,7 +37,17 @@ h1 {
     &:hover {
         color: rgb(192, 192, 192);
     }
+
+    @media screen and (min-width: 670px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 450px){
+        margin: 0.5rem 1rem 0.5rem;
+        align-self: flex-end;
+    }
 }
+
 
 nav {
     width: 100%;
@@ -53,6 +63,10 @@ ul {
     flex-direction: column;
     position: absolute;
     top: 123px;
+
+    @media screen and (min-width: 420px) {
+        top: 145px;
+    }
 
     li {
         width: 100%;
@@ -75,10 +89,6 @@ ul {
 }
 
 @media screen and (min-width: 670px) {
-
-    .icon-menu {
-        display: none;
-    }
 
     nav {
         display: block !important;
@@ -109,16 +119,5 @@ ul {
                 color: #000;
             }
         }
-    }
-}
-
-@media screen and (max-width: 450px){
-    .icon-menu {
-        margin: 0.5rem 1rem 0.5rem;
-        align-self: flex-end;
-    }
-
-    ul {
-        // top: 136px;
     }
 }
