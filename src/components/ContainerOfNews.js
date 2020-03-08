@@ -8,7 +8,6 @@ const ContainerOfNews = ({ news, topic, userInput }) => {
 
     const [articles, setArticles] = useState([]);
     const appearanceArticles = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '0.5s', transitionDuration: '.5s' } })
-    const appearanceNoNews = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '2s' } })
 
     useEffect(() => {
         setArticles(
@@ -35,7 +34,7 @@ const ContainerOfNews = ({ news, topic, userInput }) => {
     return (
         <div className="container" >
             {
-                news.filter(article => article.title.toLocaleLowerCase().includes(userInput.toLocaleLowerCase())).length > 0 ? articles : <animated.p style={appearanceNoNews} className="no-news">No news related to '{userInput}'</animated.p>
+                news.filter(article => article.title.toLocaleLowerCase().includes(userInput.toLocaleLowerCase())).length > 0 ? articles : <p className="no-news">No news related to '{userInput}'</p>
             }
         </div>
     )
