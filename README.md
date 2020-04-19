@@ -4,8 +4,7 @@
 
 > React-App Project: create an online newspaper fetching the news from an external API.
 
-<img src="https://res.cloudinary.com/jimbocloud/image/upload/v1585934809/my-repos/journal-app.png" title="logo" alt="logo">
-
+![](/screenshots/screenshot.png)
 
 > ## Details:
 
