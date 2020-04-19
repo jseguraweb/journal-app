@@ -1,6 +1,6 @@
-<a href="https://jseguraweb.github.io/journal-app/"><img src="./other-assets/Screenshot-title.png" title="logo" alt="logo"></a>
+![](/other-assets/Screenshot-title.png)
 
-# Journal App
+# <a href="https://jseguraweb.github.io/journal-app/">Journal App</a>
 
 > React-App Project: create an online newspaper fetching the news from an external API.
 
@@ -24,7 +24,7 @@
 
     **GOAL: create a responsive header & main section for the news containers**
 
-    <img src="./other-assets/responsive-journal.png" title="logo" alt="logo">
+    ![](/other-assets/responsive-journal.png)
 
 6. create a filter for the news I'm displaying so that I don't get blank spaces or margin errors (due to long url displayed in the text of the news) 
 7. Research time. Topic: Animation in React: react-spring
