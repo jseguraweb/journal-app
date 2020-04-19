@@ -1,4 +1,4 @@
-![](/other-assets/Screenshot-title.png)
+![](/screenshots/Screenshot-title.png)
 
 # <a href="https://jseguraweb.github.io/journal-app/">Journal App</a>
 
@@ -24,7 +24,7 @@
 
     **GOAL: create a responsive header & main section for the news containers**
 
-    ![](/other-assets/responsive-journal.png)
+    ![](/screenshots/responsive-journal.png)
 
 6. create a filter for the news I'm displaying so that I don't get blank spaces or margin errors (due to long url displayed in the text of the news) 
 7. Research time. Topic: Animation in React: react-spring
