@@ -6,6 +6,7 @@
 
 <img src="https://res.cloudinary.com/jimbocloud/image/upload/v1585934809/my-repos/journal-app.png" title="logo" alt="logo">
 
+
 > ## Details:
 
 - It's about practicing. The intended user and the client is going to be me. 
@@ -22,6 +23,8 @@
 5. Coding time
 
     **GOAL: create a responsive header & main section for the news containers**
+
+    <img src="./other-assets/responsive-journal.png" title="logo" alt="logo">
 
 6. create a filter for the news I'm displaying so that I don't get blank spaces or margin errors (due to long url displayed in the text of the news) 
 7. Research time. Topic: Animation in React: react-spring
