@@ -18,16 +18,16 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const serverDataSports = await fetch('http://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=701dc18d676e4d62a0c678f128ece113');
+      const serverDataSports = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=701dc18d676e4d62a0c678f128ece113');
       let sportNews = await serverDataSports.json();
       sportNews.articles.map(el => el.topic = 'sport')
-      const serverDataTech = await fetch('http://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=701dc18d676e4d62a0c678f128ece113');
+      const serverDataTech = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=701dc18d676e4d62a0c678f128ece113');
       let techNews = await serverDataTech.json();
       techNews.articles.map(el => el.topic = 'technology')
-      const serverDataBusiness = await fetch('http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=701dc18d676e4d62a0c678f128ece113');
+      const serverDataBusiness = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=701dc18d676e4d62a0c678f128ece113');
       let businessNews = await serverDataBusiness.json();
       businessNews.articles.map(el => el.topic = 'business')
-      const serverDataEntertainment = await fetch('http://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=701dc18d676e4d62a0c678f128ece113');
+      const serverDataEntertainment = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=701dc18d676e4d62a0c678f128ece113');
       let entertainmentNews = await serverDataEntertainment.json();
       entertainmentNews.articles.map(el => el.topic = 'entertainment')
 
