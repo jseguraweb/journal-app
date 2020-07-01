@@ -9,10 +9,6 @@ const ContainerOfNews = ({ news, category, userInput }) => {
     const [articles, setArticles] = useState('');
     const appearanceArticles = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '.5s', transitionDuration: '.5s' } })
 
-    // useEffect(() => {
-    //     setArticles(
-    //         news.filter(article => article.category === category).map((el, i) => <animated.div style={appearanceArticles} className="box" key={i}><NewBox key={i} article={el} /></animated.div>))
-    // }, [category])
 
     useEffect(() => {
         setArticles(

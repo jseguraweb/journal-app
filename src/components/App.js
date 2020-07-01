@@ -31,8 +31,8 @@ const App = () => {
   };
 
 
-  console.log('News: ', news);
-  console.log('category: ', category);
+  // console.log('News: ', news);
+  // console.log('category: ', category);
 
   // props
 
