@@ -36,7 +36,7 @@ const ContainerOfNews = ({ news, category, userInput }) => {
     return (
         <div className="container" >
             {
-                articles
+                articles && articles.length > 0 ? articles : `Sorry, there are no news with the category ${category}`
             }
         </div>
     )
