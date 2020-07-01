@@ -9,34 +9,32 @@ const ContainerOfNews = ({ news, category, userInput }) => {
     const [articles, setArticles] = useState('');
     const appearanceArticles = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '.5s', transitionDuration: '.5s' } })
 
-    useEffect(() => {
-        setArticles(
-            news.filter(article => article.category === category).map((el, i) => <animated.div style={appearanceArticles} className="box" key={i}><NewBox key={i} article={el} /></animated.div>))
-    }, [category])
+    // useEffect(() => {
+    //     setArticles(
+    //         news.filter(article => article.category === category).map((el, i) => <animated.div style={appearanceArticles} className="box" key={i}><NewBox key={i} article={el} /></animated.div>))
+    // }, [category])
 
     useEffect(() => {
         setArticles(
             news
                 .filter(article => article.title.toLocaleLowerCase().indexOf(userInput.toLocaleLowerCase()) !== -1)
-                .map((article, i) => {
-                    if (article.content && article.category === category) {
-                        return (
-                            <animated.div style={appearanceArticles} className="box" key={i}><NewBox key={i} article={article} /></animated.div>
-                        )
-                    } else {
-                        return null
-                    }
-                })
+                .filter(article => article.category === category)
+                .map((article, i) =>
+                    <animated.div style={appearanceArticles} className="box" key={i}><NewBox key={i} article={article} /></animated.div>)
         )
-    }, [userInput])
+    }, [userInput, category])
 
-    console.log('news in pool: ', news);
-    console.log('news filtered: ', news.filter(article => article.category === category));
 
     return (
         <div className="container" >
             {
-                articles && articles.length > 0 ? articles : `Sorry, there are no news with the category ${category}`
+                articles &&
+                    !userInput && articles.length === 0 ?
+                    `Sorry, there are no news with the category ${category}`
+                    : userInput && articles.length === 0 ?
+                        `Sorry, there are no news related to "${userInput}" in the category ${category}`
+                        :
+                        articles
             }
         </div>
     )

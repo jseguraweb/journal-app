@@ -8,10 +8,6 @@ import Footer from './Footer'
 
 const App = () => {
   const [news, setNews] = useState([]);
-  const [sportNews, setSportNews] = useState([]);
-  const [technologyNews, setTechnologyNews] = useState([]);
-  const [businessNews, setBusinessNews] = useState([]);
-  const [entertainmentNews, setEntertainmentNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState('');
   const [userInput, setUserInput] = useState('');
@@ -51,7 +47,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-    setCategory('Business');
+    setCategory('World');
   }, [])
 
 

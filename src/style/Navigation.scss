@@ -12,19 +12,19 @@ header {
 h1 {
     font-size: 2rem;
     margin: 1rem 0;
-    font-family: 'Abril Fatface', serif;
+    font-family: "Abril Fatface", serif;
     letter-spacing: 0.1rem;
     text-align: center;
     font-weight: 400;
     cursor: pointer;
 
     @media screen and (min-width: 420px) {
-            font-size: 3rem;
+        font-size: 3rem;
     }
 
     @media screen and (min-width: 670px) {
-            font-size: 5rem;
-            padding-top: 1rem;
+        font-size: 5rem;
+        padding-top: 1rem;
     }
 }
 
@@ -42,12 +42,11 @@ h1 {
         display: none;
     }
 
-    @media screen and (max-width: 450px){
+    @media screen and (max-width: 450px) {
         margin: 0.5rem 1rem 0.5rem;
         align-self: flex-end;
     }
 }
-
 
 nav {
     width: 100%;
@@ -89,7 +88,6 @@ ul {
 }
 
 @media screen and (min-width: 670px) {
-
     nav {
         display: block !important;
         z-index: 0 !important;
@@ -110,7 +108,7 @@ ul {
         li {
             width: 100%;
             height: 100%;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             text-align: center;
             padding: 0.5rem;
 
