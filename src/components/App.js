@@ -8,56 +8,58 @@ import Footer from './Footer'
 
 const App = () => {
   const [news, setNews] = useState([]);
+  const [sportNews, setSportNews] = useState([]);
+  const [technologyNews, setTechnologyNews] = useState([]);
+  const [businessNews, setBusinessNews] = useState([]);
+  const [entertainmentNews, setEntertainmentNews] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [topic, setTopic] = useState('');
+  const [category, setCategory] = useState('');
   const [userInput, setUserInput] = useState('');
 
-  useEffect(() => {
-    fetchData()
-  }, [])
 
   const fetchData = async () => {
     try {
-      const serverDataSports = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=701dc18d676e4d62a0c678f128ece113');
-      let sportNews = await serverDataSports.json();
-      sportNews.articles.map(el => el.topic = 'sport')
-      const serverDataTech = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=701dc18d676e4d62a0c678f128ece113');
-      let techNews = await serverDataTech.json();
-      techNews.articles.map(el => el.topic = 'technology')
-      const serverDataBusiness = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=701dc18d676e4d62a0c678f128ece113');
-      let businessNews = await serverDataBusiness.json();
-      businessNews.articles.map(el => el.topic = 'business')
-      const serverDataEntertainment = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=701dc18d676e4d62a0c678f128ece113');
-      let entertainmentNews = await serverDataEntertainment.json();
-      entertainmentNews.articles.map(el => el.topic = 'entertainment')
-
-      let allNews = sportNews.articles.concat(techNews.articles, businessNews.articles, entertainmentNews.articles);
-      const shuffleArray = array => array.sort(() => Math.random() - 0.5);
-      allNews = shuffleArray(allNews)
-
-      setNews(allNews);
+      const request = await fetch("https://newscafapi.p.rapidapi.com/apirapid/news/", {
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-host": "newscafapi.p.rapidapi.com",
+          "x-rapidapi-key": "ed00fcb69dmsh67123677c95871cp1544abjsn90b6a0b9e599"
+        }
+      });
+      let response = await request.json();
+      setNews(response);
       setLoading(false);
     } catch (error) {
       console.log('ERROR:', error)
     }
-  }
+  };
+
+
+  console.log('News: ', news);
+  console.log('category: ', category);
 
   // props
 
-  const changeTopic = topic => {
-    setTopic(topic)
-    setUserInput('')
+  const changeCategory = category => {
+    setCategory(category);
+    setUserInput('');
   }
 
   const handleSubmit = input => {
-    setUserInput(input)
+    setUserInput(input);
   }
+
+  useEffect(() => {
+    fetchData();
+    setCategory('Business');
+  }, [])
+
 
   return (
     <div>
-      <Navigation changeTopic={changeTopic} />
+      <Navigation changeCategory={changeCategory} category={category} />
       <SearchForm handleSubmit={handleSubmit} />
-      {news.length > 0 ? <ContainerOfNews news={news} topic={topic} userInput={userInput} /> : null}
+      {news.length > 0 ? <ContainerOfNews news={news} category={category} userInput={userInput} /> : null}
       {loading ? <LoadingPage /> : null}
       {news.length > 0 ? <Footer /> : null}
     </div>

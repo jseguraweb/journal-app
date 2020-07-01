@@ -4,23 +4,22 @@ import NewBox from './NewBox'
 import { useSpring, animated } from 'react-spring'
 
 
-const ContainerOfNews = ({ news, topic, userInput }) => {
+const ContainerOfNews = ({ news, category, userInput }) => {
 
-    const [articles, setArticles] = useState([]);
+    const [articles, setArticles] = useState('');
     const appearanceArticles = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '.5s', transitionDuration: '.5s' } })
+
+    useEffect(() => {
+        setArticles(
+            news.filter(article => article.category === category).map((el, i) => <animated.div style={appearanceArticles} className="box" key={i}><NewBox key={i} article={el} /></animated.div>))
+    }, [category])
 
     useEffect(() => {
         setArticles(
             news
                 .filter(article => article.title.toLocaleLowerCase().indexOf(userInput.toLocaleLowerCase()) !== -1)
                 .map((article, i) => {
-                    if (article.description &&
-                        typeof article.urlToImage === 'string' &&
-                        article.urlToImage.includes('http') &&
-                        !article.description.includes('http') &&
-                        !article.description.includes('%20') &&
-                        (topic === '' ||
-                            topic === article.topic)) {
+                    if (article.content && article.category === category) {
                         return (
                             <animated.div style={appearanceArticles} className="box" key={i}><NewBox key={i} article={article} /></animated.div>
                         )
@@ -29,12 +28,15 @@ const ContainerOfNews = ({ news, topic, userInput }) => {
                     }
                 })
         )
-    }, [userInput, topic])
+    }, [userInput])
+
+    console.log('news in pool: ', news);
+    console.log('news filtered: ', news.filter(article => article.category === category));
 
     return (
         <div className="container" >
             {
-                news.filter(article => article.title.toLocaleLowerCase().includes(userInput.toLocaleLowerCase())).length > 0 ? articles : <p className="no-news">No news related to '{userInput}'</p>
+                articles
             }
         </div>
     )
